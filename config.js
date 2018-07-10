@@ -1,4 +1,4 @@
-var api = 'http://127.0.0.1:11898';
+var api = 'http://127.0.0.1:12001';
 var donationAddress = "";
 var blockTargetInterval = 3600;
 var coinUnits = 100;
