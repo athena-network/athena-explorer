@@ -2,7 +2,7 @@ var api = 'http://athx.trtl.services:12001';
 var donationAddress = "";
 var blockTargetInterval = 3600;
 var coinUnits = 100;
-var symbol = 'XAT';
+var symbol = 'xat';
 var refreshDelay = 3600000;
 // pools stats by MainCoins
 var networkStat = {
@@ -12,7 +12,7 @@ var networkStat = {
 };
 
 var networkStat2 = {
-    "XAT": [
+    "xat": [
 	[""]
  ]
 };
