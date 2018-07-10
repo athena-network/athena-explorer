@@ -1,18 +1,17 @@
-var api = 'http://athx.trtl.services:12001';
+var api = 'http://athx-explorer.trtl.services:12001';
 var donationAddress = "";
 var blockTargetInterval = 3600;
 var coinUnits = 100;
-var symbol = 'xat';
+var symbol = 'ATHX';
 var refreshDelay = 3600000;
 // pools stats by MainCoins
 var networkStat = {
  "athena": [
-
  ]
 };
 
 var networkStat2 = {
-    "xat": [
+    "athx": [
 	[""]
  ]
 };

@@ -1625,7 +1625,7 @@ return{_strlen:lb,_ge_mul8:Va,_keccak:db,_ge_scalarmult:Ta,_ge_fromfe_frombytes_
 var salt = '4721283fee2db41e1f2fc50ea9f6d783'; // IMPORTANT: never change it, otherwise it will be impossible to restore previously generated wallets!
 var config = {
     coinUnitPlaces: 8,
-    coinSymbol: 'XAT',
+    coinSymbol: 'ATHX',
     coinName: 'Athena',
     coinUriPrefix: 'athena:',
     addressPrefix: 0x18845CFCA
@@ -2482,7 +2482,7 @@ var mn_words = {
             "faulty", "fawns", "faxed", "fazed", "feast", "february", "federal", "feel",
             "feline", "females", "fences", "ferry", "festival", "fetches", "fever", "fewest",
             "fiat", "fibula", "fictional", "fidget", "fierce", "fifteen", "fight", "films",
-            "firm", "fishing", "fitting", "five", "fixate", "fizzle", "fleet", "flippant",
+            "firm", "fishing", "fitting", "five", "fiATHXe", "fizzle", "fleet", "flippant",
             "flying", "foamy", "focus", "foes", "foggy", "foiled", "folding", "fonts",
             "foolish", "fossil", "fountain", "fowls", "foxes", "foyer", "framed", "friendly",
             "frown", "fruit", "frying", "fudge", "fuel", "fugitive", "fully", "fuming",
@@ -2946,7 +2946,7 @@ var mn_words = {
             "joguete", "joio", "jojoba", "jorro", "jota", "joule", "joviano", "jubiloso",
             "judoca", "jugular", "juizo", "jujuba", "juliano", "jumento", "junto", "jururu",
             "justo", "juta", "juventude", "labutar", "laguna", "laico", "lajota", "lanterninha",
-            "lapso", "laquear", "lastro", "lauto", "lavrar", "laxativo", "lazer", "leasing",
+            "lapso", "laquear", "lastro", "lauto", "lavrar", "laATHXivo", "lazer", "leasing",
             "lebre", "lecionar", "ledo", "leguminoso", "leitura", "lele", "lemure", "lento",
             "leonardo", "leopardo", "lepton", "leque", "leste", "letreiro", "leucocito", "levitico",
             "lexicologo", "lhama", "lhufas", "liame", "licoroso", "lidocaina", "liliputiano", "limusine",
@@ -3034,7 +3034,7 @@ var mn_words = {
             "utilizar", "utopico", "uvular", "uxoricidio", "vacuo", "vadio", "vaguear", "vaivem",
             "valvula", "vampiro", "vantajoso", "vaporoso", "vaquinha", "varziano", "vasto", "vaticinio",
             "vaudeville", "vazio", "veado", "vedico", "veemente", "vegetativo", "veio", "veja",
-            "veludo", "venusiano", "verdade", "verve", "vestuario", "vetusto", "vexatorio", "vezes",
+            "veludo", "venusiano", "verdade", "verve", "vestuario", "vetusto", "veATHXorio", "vezes",
             "viavel", "vibratorio", "victor", "vicunha", "vidros", "vietnamita", "vigoroso", "vilipendiar",
             "vime", "vintem", "violoncelo", "viquingue", "virus", "visualizar", "vituperio", "viuvo",
             "vivo", "vizir", "voar", "vociferar", "vodu", "vogar", "voile", "volver",
