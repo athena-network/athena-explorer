@@ -12,226 +12,271 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link href="css/themes/athena/style.css" rel="stylesheet" id="theme_link">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 
 	<script src="./config.js"></script>
     <script src="js/main.js"></script>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', () => {
+			const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+			if ($navbarBurgers.length > 0) {
+			$navbarBurgers.forEach( el => {
+				el.addEventListener('click', () => {
+				const target = el.dataset.target;
+				const $target = document.getElementById(target);
+				el.classList.toggle('is-active');
+				$target.classList.toggle('is-active');
+				});
+			});
+			}
+		});
+	</script>
+
+<script>
+	$('#btn_search').click(function(e) {
+	
+	var text = document.getElementById('txt_search').value;
+	
+	function GetSearchBlockbyHeight(){
+	
+		var block, xhrGetSearchBlockbyHeight;
+		if (xhrGetSearchBlockbyHeight) xhrGetSearchBlockbyHeight.abort();
+		  
+				xhrGetSearchBlockbyHeight = $.ajax({
+				url: api + '/json_rpc',
+				method: "POST",
+				data: JSON.stringify({
+					jsonrpc:"2.0",
+					id: "blockbyheight",
+					method:"getblockheaderbyheight",
+					params: {
+					   height: parseInt(text)
+					}
+				}),
+				dataType: 'json',
+				cache: 'false',
+				success: function(data){
+					if(data.result){
+						block = data.result.block_header;
+						window.location.href = getBlockchainUrl(block.hash);
+					} else if(data.error) {
+						wrongSearchAlert();
+					}
+				}
+			});
+	}
+	
+	function GetSearchBlock(){
+	var block, xhrGetSearchBlock;
+		if (xhrGetSearchBlock) xhrGetSearchBlock.abort();
+			xhrGetSearchBlock = $.ajax({
+				url: api + '/json_rpc',
+				method: "POST",
+				data: JSON.stringify({
+					jsonrpc:"2.0",
+					id: "GetSearchBlock",
+					method:"f_block_json",
+					params: {
+					   hash: text
+					}
+				}),
+				dataType: 'json',
+				cache: 'false',
+				success: function(data){
+					if(data.result){
+						block = data.result.block;
+						sessionStorage.setItem('searchBlock', JSON.stringify(block));
+						window.location.href = getBlockchainUrl(block.hash);
+					} else if(data.error) {
+						$.ajax({
+							url: api + '/json_rpc',
+							method: "POST",
+							data: JSON.stringify({
+								jsonrpc:"2.0",
+								id: "test",
+								method:"f_transaction_json",
+								params: {
+									hash: text
+								}
+							}),
+							dataType: 'json',
+							cache: 'false',
+							success: function(data){
+								  if(data.result){
+									sessionStorage.setItem('searchTransaction', JSON.stringify(data.result));
+									window.location.href = transactionExplorer.replace('{id}', text);
+								  } else if(data.error) {
+									xhrGetTsx =  $.ajax({
+										url: api + '/json_rpc',
+										method: "POST",
+										data: JSON.stringify({
+											jsonrpc:"2.0",
+											id: "test",
+											method:"k_transactions_by_payment_id",
+											params: {
+												payment_id: text
+											}
+										}),
+										dataType: 'json',
+										cache: 'false',
+										success: function(data){
+											if(data.result){
+												txsByPaymentId = data.result.transactions;
+												sessionStorage.setItem('txsByPaymentId', JSON.stringify(txsByPaymentId));
+												window.location.href = paymentIdExplorer.replace('{id}', text);
+											} else if(data.error) {
+												$('#page').after(
+													'<div class="alert alert-warning alert-dismissable fade in" style="position: fixed; right: 50px; top: 50px;">'+
+														'<button type="button" class="close" ' + 
+																'data-dismiss="alert" aria-hidden="true">' + 
+															'&times;' + 
+														'</button>' + 
+														'We could not find anything.' + 
+													 '</div>');
+											}
+										}
+									});
+								  
+								  }
+							}
+						});
+					}
+				}	
+			});
+	}
+	
+	if ( text.length < 64 ) {
+		GetSearchBlockbyHeight();
+	} else if ( text.length == 64 ) {
+		GetSearchBlock();
+	} else {
+		wrongSearchAlert();
+	}
+	
+	e.preventDefault();
+	
+	});
+	
+	function wrongSearchAlert() {
+		$('#page').after(
+			'<div class="alert alert-danger alert-dismissable fade in" style="position: fixed; right: 50px; top: 50px;">'+
+			'<button type="button" class="close" ' + 
+			'data-dismiss="alert" aria-hidden="true">' + 
+			'&times;' + 
+			'</button>' + 
+			'<strong>Wrong search query!</strong><br /> Please enter block height or hash, transaction hash, or payment id.' + 
+			'</div>');
+	}
+	
+	$('#txt_search').keyup(function(e){
+			if(e.keyCode === 13)
+				$('#btn_search').click();
+	});
+	</script>
+	
 </head>
-<body>
+<body >
+	<section class="hero is-white is-fullheight">
+		<!-- Hero head: will stick at the top -->
+		<div class="hero-head">
+		<header class="navbar" style="padding-top:10px;">
+			<div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item is-size-3 has-text-weight-semibold">
+					Athena Explorer
+				</a>
+				<span class="navbar-burger burger" data-target="navbarMenu">
+				<span></span>
+				<span></span>
+				<span></span>
+				</span>
+			</div>
+			<div id="navbarMenu" class="navbar-menu">
+				<div class="navbar-end">
+				<span class="navbar-item">
+					<a data-page="home.html" href="#" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-cubes"></i>
+					</span>
+					<span>Block Explorer</span>
+					</a>
+				</span>
+				<span class="navbar-item">
+					<a data-page="pools.html" href="#pools" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-gavel"></i>
+					</span>
+					<span>Pools</span>
+					</a>
+				</span>
+				<span class="navbar-item">
+					<a data-page="api.html" href="#api" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-code"></i>
+					</span>
+					<span>API</span>
+					</a>
+				</span>
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Menu</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand " href="#"><strong>Athena</strong></a>
-			<div id="stats_updated"><i class="fa fa-bolt"></i></div>
-        </div>
-		
-        <div class="collapse navbar-collapse">
-		 
-            <ul class="nav navbar-nav navbar-left explorer_menu">
 
-			    <li><a class="hot_link" data-page="home.html" href="#">
+				<span class="navbar-item" style="display:none;">
+					<a data-page="blockchain_block.html" href="#blockchain_block" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-cubes"></i>
+					</span>
+					<span>Block</span>
+					</a>
+				</span>
 
-                    <i class="fa fa-cubes" aria-hidden="true"></i> Block Explorer
-                </a></li>
+				<span class="navbar-item" style="display:none;">
+					<a data-page="blockchain_transaction.html" href="#blockchain_transaction" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-cubes"></i>
+					</span>
+					<span>Transaction</span>
+					</a>
+				</span>
 
-		<li><a class="hot_link" data-page="check_txn.html" href="#check_txn">
-                    <i class="fa fa-exchange" aria-hidden="true"></i> Check TXNs
-                </a></li>
-				
-		<li><a class="hot_link" data-page="pools.html" href="#pools">
-                    <i class="fa fa-gavel" aria-hidden="true"></i> Pools
-                </a></li>
-				
-		<li><a class="hot_link" data-page="api.html" href="#api">
-                    <i class="fa fa-code" aria-hidden="true"></i> API
-                </a></li>
+				<span class="navbar-item" style="display:none;">
+					<a data-page="blockchain_payment_id.html" href="#blockchain_payment_id" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-cubes"></i>
+					</span>
+					<span>Transactions by Payment ID</span>
+					</a>
+				</span>
 
-                <li style="display:none;"><a class="hot_link" data-page="blockchain_block.html" href="#blockchain_block"><i class="fa fa-cubes"></i> Block
-                </a></li>
+				<span class="navbar-item" style="display:none;">
+					<a data-page="support.html" href="#support" class="button is-light hot_link">
+					<span class="icon">
+						<i class="fa fa-comments"></i>
+					</span>
+					<span>Support</span>
+					</a>
+				</span>
 
-                <li style="display:none;"><a class="hot_link" data-page="blockchain_transaction.html" href="#blockchain_transaction"><i class="fa fa-cubes"></i> Transaction
-                </a></li>
-				
-				<li style="display:none;"><a class="hot_link" data-page="blockchain_payment_id.html" href="#blockchain_payment_id"><i class="fa fa-cubes"></i> Transactions by Payment ID
-                </a></li>
 
-                <li><a  style="display:none;" class="hot_link" data-page="support.html" href="#support">
-                    <i class="fa fa-comments"></i> Help
-                </a></li> 
+				<span class="navbar-item">
+						<input class="input" placeholder="Height/Hash/PaymentID" id="txt_search">
+						<button class="button is-black" type="button" id="btn_search">
+						<i class="fa fa-search"></i> Search
+						</button>
+	
+				</span>
 
-<!-- //-->
-            </ul>
-            
-					
-			<div class="nav col-md-6 navbar-right explorer-search">
-				<div class="input-group">
-					<input class="form-control" placeholder="Search by block height / hash, transaction hash, payment id" id="txt_search">
-					<span class="input-group-btn"><button class="btn btn-default" type="button" id="btn_search">
-						<span><i class="fa fa-search"></i> Search</span>
-					</button></span>
+
 				</div>
 			</div>
-		  
-		  
-		  
-		</div>
-	  </div>
-</div>
-
+			</div>
+		</header>
+	</div>
 	
-<script>
-$('#btn_search').click(function(e) {
 
-var text = document.getElementById('txt_search').value;
-
-function GetSearchBlockbyHeight(){
-
-	var block, xhrGetSearchBlockbyHeight;
-    if (xhrGetSearchBlockbyHeight) xhrGetSearchBlockbyHeight.abort();
-	  
-			xhrGetSearchBlockbyHeight = $.ajax({
-            url: api + '/json_rpc',
-            method: "POST",
-            data: JSON.stringify({
-                jsonrpc:"2.0",
-                id: "blockbyheight",
-                method:"getblockheaderbyheight",
-                params: {
-                   height: parseInt(text)
-                }
-            }),
-            dataType: 'json',
-            cache: 'false',
-            success: function(data){
-				if(data.result){
-					block = data.result.block_header;
-					window.location.href = getBlockchainUrl(block.hash);
-				} else if(data.error) {
-					wrongSearchAlert();
-				}
-            }
-        });
-}
-
-function GetSearchBlock(){
-var block, xhrGetSearchBlock;
-	if (xhrGetSearchBlock) xhrGetSearchBlock.abort();
-		xhrGetSearchBlock = $.ajax({
-            url: api + '/json_rpc',
-            method: "POST",
-            data: JSON.stringify({
-                jsonrpc:"2.0",
-                id: "GetSearchBlock",
-                method:"f_block_json",
-                params: {
-                   hash: text
-                }
-            }),
-            dataType: 'json',
-            cache: 'false',
-			success: function(data){
-				if(data.result){
-					block = data.result.block;
-					sessionStorage.setItem('searchBlock', JSON.stringify(block));
-					window.location.href = getBlockchainUrl(block.hash);
-				} else if(data.error) {
-					$.ajax({
-						url: api + '/json_rpc',
-						method: "POST",
-						data: JSON.stringify({
-							jsonrpc:"2.0",
-							id: "test",
-							method:"f_transaction_json",
-							params: {
-								hash: text
-							}
-						}),
-						dataType: 'json',
-						cache: 'false',
-						success: function(data){
-							  if(data.result){
-								sessionStorage.setItem('searchTransaction', JSON.stringify(data.result));
-								window.location.href = transactionExplorer.replace('{id}', text);
-							  } else if(data.error) {
-								xhrGetTsx =  $.ajax({
-									url: api + '/json_rpc',
-									method: "POST",
-									data: JSON.stringify({
-										jsonrpc:"2.0",
-										id: "test",
-										method:"k_transactions_by_payment_id",
-										params: {
-											payment_id: text
-										}
-									}),
-									dataType: 'json',
-									cache: 'false',
-									success: function(data){
-										if(data.result){
-											txsByPaymentId = data.result.transactions;
-											sessionStorage.setItem('txsByPaymentId', JSON.stringify(txsByPaymentId));
-											window.location.href = paymentIdExplorer.replace('{id}', text);
-										} else if(data.error) {
-											$('#page').after(
-												'<div class="alert alert-warning alert-dismissable fade in" style="position: fixed; right: 50px; top: 50px;">'+
-													'<button type="button" class="close" ' + 
-															'data-dismiss="alert" aria-hidden="true">' + 
-														'&times;' + 
-													'</button>' + 
-													'We could not find anything.' + 
-												 '</div>');
-										}
-									}
-								});
-							  
-							  }
-						}
-					});
-				}
-			}	
-		});
-}
-
-if ( text.length < 64 ) {
-	GetSearchBlockbyHeight();
-} else if ( text.length == 64 ) {
-	GetSearchBlock();
-} else {
-	wrongSearchAlert();
-}
-
-e.preventDefault();
-
-});
-
-function wrongSearchAlert() {
-	$('#page').after(
-		'<div class="alert alert-danger alert-dismissable fade in" style="position: fixed; right: 50px; top: 50px;">'+
-		'<button type="button" class="close" ' + 
-		'data-dismiss="alert" aria-hidden="true">' + 
-		'&times;' + 
-		'</button>' + 
-		'<strong>Wrong search query!</strong><br /> Please enter block height or hash, transaction hash, or payment id.' + 
-		'</div>');
-}
-
-$('#txt_search').keyup(function(e){
-        if(e.keyCode === 13)
-            $('#btn_search').click();
-});
-</script>
-
-<div id="content">
-	<div class="container">
+	<div class="hero-body">
+		<div class="container">
 
 		<div id="page"></div>
 
@@ -239,43 +284,27 @@ $('#txt_search').keyup(function(e){
 
 	</div>
 </div>
-
-<footer>
+<footer class="footer hero-foot">
 	<div class="container">
-                <div class="row">
-			<div class="col-lg-12 col-md-4 col-sm-4 text-center" id="donations" style="word-wrap:break-word; display:none;">
-                        Donations welcome:<br/>
-                        <span id="donationAddress"></span><br/><br/>
+		<div class="columns">
+			<div class="column has-text-left">
+					&copy; 2018 Athena Foundation 
+
 			</div>
-                </div>
-		<div class="row">
-			<div class="col-lg-4 col-md-3 col-sm-3 text-center">
-				<p>
-					<small>
-						&copy; 2018 <strong>ATHX</strong> 
-					</small>
-				</p>
-			</div>
-			<div class="col-lg-4 col-md-3 col-sm-6 text-center">
-				<p>
-					<small>
-					<!-- This copyright should be left intact -->
-				
-					Powered by <a target="_blank" href="https://github.com/fexra/block-explorer"><i class="fa fa-github"></i> Athena Blockchain Explorer</a> v. 1.0.0.<br />
-					<span class="text-muted">Code from <strong>Karbowanec Blockchain Explorer</strong><br />
-					<span class="text-muted">Partially based on <strong>cryptonote-universal-pool</strong><br />
-					open sourced under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL</a></span>
-					</small>
-				</p>
-			</div>
-			<div class="col-lg-4 col-md-3 col-sm-3 text-center">
-                                <ul class="list-unstyled">
-				        <li><a href="http://athx.org/">The Athena Foundation</a></li>
-                               </ul>
+			<div class="column has-text-right">
+				<a href="https://github.com/fexra/athena-explorer" class="button is-dark">
+					<span class="icon">
+						<i class="fab fa-github"></i>
+					</span>
+					<span>Github</span>
+					</a>
+				</div>
 			</div>
 		</div>
     </div>
 </footer>
+</section>
+
 <a href="#" class="scrollup"><i class="fa fa-chevron-circle-up"></i></a>
 	<script type="text/javascript">
 			jQuery(function($) { $(document).ready(function() {
