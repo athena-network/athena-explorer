@@ -3,19 +3,24 @@
         <div class="tile">
             <article class="tile is-child notification">
                 <p class="title size-is-4">Transaction</p>
-                <div>Hash: <span id="transaction.hash" style="word-break: break-all;"></span></div>
-                <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span> <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
-                <div>Fee: <span id="transaction.fee"></span></div>
-                <div>Sum of outputs: <span id="transaction.amount_out"></span></div>
-                <div>Size: <span id="transaction.size"></span></div>
-                <div id="div_transaction_paymentId">Payment ID: <span id="transaction.paymentId"></span>
-                <br />
-                Payment ID decoding: <em id="transaction.paymentIdDecifer"></em></div>
-                <div id="div_transaction_mixin">Mixin: <span id="transaction.mixin"></span></div>
-                <div id="tx_unconfirmed" style="display: none;"><span class="text-warning">Unconfirmed Transaction</span></div>
-                <div>Block: <span id="block.hash" style="word-break: break-all;"></span></div>
-                <div>Height: <span id="block.height"></span></div>
-                <div>Timestamp: <span id="block.timestamp"></span></div>
+                <div class="columns">
+                    <div class="column">
+                        <div>Tx Hash: <span id="transaction.hash" style="word-break: break-all;"></span></div>
+                        <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span> <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
+                        <div>Fee: <span id="transaction.fee"></span></div>
+                        <div>Sum of outputs: <span id="transaction.amount_out"></span></div>
+                        <div>Size: <span id="transaction.size"></span></div>
+                        <div id="div_transaction_paymentId">Payment ID: <span id="transaction.paymentId"></span>
+                        <br />
+                        Payment ID decoding: <em id="transaction.paymentIdDecifer"></em></div>
+                        <div id="div_transaction_mixin">Mixin: <span id="transaction.mixin"></span></div>
+                        <div id="tx_unconfirmed" style="display: none;"><span class="text-warning">Unconfirmed Transaction</span></div>
+                    </div>
+                    <div class="column">
+                        <div>Block Hash: <span id="block.hash" style="word-break: break-all;"></span></div>
+                        <div>Height: <span id="block.height"></span></div>
+                        <div>Timestamp: <span id="block.timestamp"></span></div>
+                    </div>
             </article>
         </div>
     </div>
