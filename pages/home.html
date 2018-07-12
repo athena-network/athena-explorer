@@ -5,21 +5,64 @@
                 <p class="title is-4">Overview</p>
                 <div class="columns" style="padding-top:20px;">
                     <div class="column">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><i class="fa fa-bars"></i> Height: <span id="networkHeight"></span></li>
-                            <li><i class="fa fa-exchange"></i> Transactions: <span id="networkTransactions"></span></li>
-                            <li><i class="fa fa-certificate"></i> Reward: <span id="currentReward"></span></li>
-                            <li><i class="fa fa-money"></i> Supply: <span id="totalCoins"></span></li>
-                            <li><i class="fa fa-percent" aria-hidden="true"></i> Emission: <span id="emissionPercent"></span> %</li>
-                        </ul>
+                        <p class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-bars" aria-hidden="true"></i>
+                            </span>
+                            <b>Height:</b>  <span id="networkHeight"></span>
+                        </p>
+                        <p class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-exchange" aria-hidden="true"></i>
+                            </span>
+                            <b>Transactions:</b>  <span id="networkTransactions"></span>
+                        </p>
+                        <p class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-coins" aria-hidden="true"></i>
+                            </span>
+                            <b>Reward:</b>  <span id="currentReward"></span>
+                        </p>
+                        <p class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-boxes" aria-hidden="true"></i>
+                            </span>
+                            <b>Supply:</b>  <span id="totalCoins"></span>
+                        </p>
+                        <p class="panel-block">
+                            <span class="panel-icon">
+                                <i class="fas fa-signal" aria-hidden="true"></i>
+                            </span>
+                            <b>Emission:</b>  <span id="emissionPercent"></span>
+                        </p>
                     </div>
                     <div class="column">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></li>
-                            <li><i class="fa fa-lock"></i> Average Difficulty: <span id="avgDifficulty"></span></li>
-                            <li><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></li>
-                            <li><i class="fa fa-clock"></i> Average Hash Rate: <span id="avgHashrate"></span></li>
-                        </ul>
+                        <div class="column">
+                            <p class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-unlock-alt" aria-hidden="true"></i>
+                                </span>
+                                <b>Difficulty:</b>  <span id="networkDifficulty"></span>
+                            </p>
+                            <p class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-lock" aria-hidden="true"></i>
+                                </span>
+                                <b>Avg. Diff.:</b>  <span id="avgDifficulty"></span>
+                            </p>
+                            <p class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                                </span>
+                                <b>Hash Rate:</b>  <span id="networkHashrate"></span>
+                            </p>
+                            <p class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                </span>
+                                <b>Avg. Hash Rate:</b>  <span id="avgHashrate"></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -40,7 +83,7 @@
     <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title is-4 badge is-badge-info" id="mempool_count">Memory Pool</p>
+                <p class="title is-4 badge is-badge-info is-large" id="mempool_count" data-badge="0"></p>>Memory Pool</p>
                 <div class="table">
                     <table class="table is-hoverable is-fullwidth is-5" id="mem_pool_table">
                         <thead>
@@ -483,6 +526,7 @@
                     }
                 }
                 //updateText('mempool_count', document.querySelectorAll('#mem_pool_rows tr').length);
+                console.log(document.querySelectorAll('#mem_pool_rows tr').lengt)
                 $('#mempool_count').data('badge', document.querySelectorAll('#mem_pool_rows tr').length);
             },
             error: function(data) {console.log(data);}
@@ -675,33 +719,8 @@
                     title: function(tooltipItem, data) {
                         var height = data.datasets[3].data[tooltipItem[0].index];
                         var time = new Date(data.labels[tooltipItem[0].index]).toLocaleString();
-                        //return 'Блок №: ' + height + ' - ' + time + '';
                         return time + '';
                     },
-                    /*
-                    label: function(tooltipItem, data) {
-                        var diff        = data.datasets[0].data[tooltipItem.index];
-                        var txcount = data.datasets[1].data[tooltipItem.index];
-                        var size        = data.datasets[2].data[tooltipItem.index];
-
-                        var diff_swatch_color = data.datasets[0].borderColor;
-
-                        console.log(diff_swatch_color);
-
-                        var diff_swatch = '<span style="color="'+ diff_swatch_color +'">&bullet;</span>';
-
-                        var multistringText = [];
-
-                        var str1 = diff_swatch + 'Складність: ' + diff + '';
-                        var str2 = 'Розмір: ' + size + '';
-                        var str3 = 'Транзакції: ' + txcount + '';
-
-                        multistringText.push(str1);
-                        multistringText.push(str2);
-                        multistringText.push(str3);
-
-                        return multistringText;
-                    }*/
                 }
             }
         };
