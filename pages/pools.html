@@ -1,28 +1,33 @@
 <div class="tile is-ancestor">
-    <div class="tile is-parent is-6">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title is-4">Pools Overview</p>
-                <div class="columns" style="padding-top:20px;">
-                    <div class="column">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><i class="fa fa-tachometer"></i> Pools speed: <span id="totalPoolsHashrate"></span></li>
-                            <li><i class="fa fa-tachometer"></i> Network speed: <span id="networkHashrate"></span></li>
-                            <li><i class="fa fa-group"></i> Total miners: <span id="total_miners"></span></li>
 
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><i class="fa fa-unlock-alt"></i> Current difficulty: <span id="networkDifficulty"></span></li>
-                            <li><i class="fa fa-lock"></i> Average difficulty: <span id="avgDifficulty"></span></li>
-                            <li><i class="fa fa-tachometer"></i> Average Hashrate: <span id="avgHashrate"></span></li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-        </div>
+    <div class="tile is-parent is-vertical is-3">
+        <article class="tile is-child notification is-size-6" style="padding-top:30px;">
+            <i class="fas fa-tachometer" aria-hidden="true"></i> <b>Pool Speed: </b> <span id="totalPoolsHashrate"></span>
+        </article>   
+
+        <article class="tile is-child notification is-size-6" style="padding-top:30px;">
+            <i class="fas fa-leaf" aria-hidden="true"></i> <b>Network Speed: </b> <span id="networkHashrate"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6" style="padding-top:30px;">
+            <i class="fas fa-tachometer" aria-hidden="true"></i> <b>Total Miners: </b> <span id="total_miners"></span>
+        </article>   
     </div>
+
+    <div class="tile is-parent is-vertical is-3">
+        <article class="tile is-child notification is-size-6" style="padding-top:30px;">
+            <i class="fas fa-lock" aria-hidden="true"></i> <b>Difficulty: </b> <span id="networkDifficulty"></span>
+        </article>   
+
+        <article class="tile is-child notification is-size-6" style="padding-top:30px;">
+            <i class="fas fa-lock" aria-hidden="true"></i> <b>Avg. Difficulty: </b> <span id="avgDifficulty"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6" style="padding-top:30px;">
+            <i class="fas fa-tachometer" aria-hidden="true"></i> <b>Avg. Hash Rate: </b> <span id="avgHashrate"></span>
+        </article>   
+    </div>
+    
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification">
