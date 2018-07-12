@@ -1,12 +1,12 @@
-<div class="row">
-    <div class="col-sm-12 col-md-6">
+<div class="columns">
+    <div class="column">
         <div class="panel panel-default" id="network-stats">
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i> Stats</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-sm-6 col-md-6">
+                    <div class="column">
                         <ul class="nav nav-pills nav-stacked">
                             <li><i class="fa fa-bars"></i> Height: <span id="networkHeight"></span></li>
                             <li><i class="fa fa fa-exchange"></i> Transactions: <span id="networkTransactions"></span></li>
@@ -15,7 +15,7 @@
                             <li><i class="fa fa-percent" aria-hidden="true"></i> Emission: <span id="emissionPercent"></span> %</li>
                         </ul>
                     </div>
-                    <div class="col-sm-6 col-md-6">
+                    <div class="column">
                         <ul class="nav nav-pills nav-stacked">
                             <li><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></li>
                             <li><i class="fa fa-lock"></i> Average Difficulty: <span id="avgDifficulty"></span></li>
@@ -28,10 +28,10 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-6">
+    <div class="column">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-area-chart" aria-hidden="true"></i> Charts
+                <h3 class="panel-title"><i class="fa fa-chart" aria-hidden="true"></i> Charts
                     <span class="text-default" data-toggle="tooltip" data-placement="right" data-original-title="Difficulty based on last blocks from the list below. Block size, transactions count. Load more blocks to enlarge chart range."><i class="fa fa-question-circle"></i></span>
                 </h3>
             </div>
@@ -44,14 +44,14 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-exchange fa-fw" aria-hidden="true"></i> Transaction pool
+        <h3 class="panel-title"><i class="fa fa-exchange" aria-hidden="true"></i> Transaction pool
             <span id="mempool_count" class="badge"></span>
             <span class="text-default" data-toggle="tooltip" data-placement="right" data-original-title="Recent transactions waiting to be included into a block. Once it happens a transaction gets into the blockchain and becomes confirmed."><i class="fa fa-question-circle"></i></span>
         </h3>
     </div>
     <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-hover" id="mem_pool_table">
+        <div class="table">
+            <table class="table  is-hoverable" id="mem_pool_table">
                 <thead>
                     <tr>
                         <!-- <th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th> Add this back when mempool json adds a-->
@@ -71,7 +71,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <i class="fa fa-chain fa-fw" aria-hidden="true"></i> Recent blocks
+            <i class="fa fa-chain" aria-hidden="true"></i> Recent blocks
             <span id="block-range-wrapper" style="float:right">Viewing Range: <span id="block-range">______ - ______</span></span>
         </h3>
     </div>
@@ -84,8 +84,8 @@
             <a id="prev-page" href="#" class="btn btn-default input-group-addon">Older <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </div>
         <br />
-        <div class="table-responsive">
-            <table class="table table-hover">
+        <div class="table">
+            <table class="table is-hoverable">
                 <thead>
                     <tr>
                         <th><i class="fa fa-bars"></i> Height</th>
@@ -100,8 +100,8 @@
                 </tbody>
             </table>
         </div>
-        <p class="text-center">
-            <button type="button" class="btn btn-default" id="loadMoreBlocks">Load More</button>
+        <p class="has-text-centered">
+            <button type="button" class="button is-black is-large" id="loadMoreBlocks">Load More</button>
         </p>
     </div>
 </div>
