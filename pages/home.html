@@ -1,52 +1,44 @@
-<div class="columns">
-    <div class="column">
-        <div class="panel panel-default" id="network-stats">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i> Stats</h3>
-            </div>
-            <div class="panel-block">
-                <div class="row">
-                    <div class="column">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><i class="fa fa-bars"></i> Height: <span id="networkHeight"></span></li>
-                            <li><i class="fa fa fa-exchange"></i> Transactions: <span id="networkTransactions"></span></li>
-                            <li><i class="fa fa-certificate"></i> Reward: <span id="currentReward"></span></li>
-                            <li><i class="fa fa-money"></i> Supply: <span id="totalCoins"></span></li>
-                            <li><i class="fa fa-percent" aria-hidden="true"></i> Emission: <span id="emissionPercent"></span> %</li>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></li>
-                            <li><i class="fa fa-lock"></i> Average Difficulty: <span id="avgDifficulty"></span></li>
-                            <li><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></li>
-                            <li><i class="fa fa-clock-o"></i> Average Hash Rate: <span id="avgHashrate"></span></li>
-                            <!-- <li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Estimated block solve time at estimated network speed and current difficulty."><i class="fa fa-circle-o-notch" aria-hidden="true"></i> Solve time: <span id="blockSolveTime"></span></a></li> -->
-                        </ul>
-                    </div>
+<div class="tile is-ancestor">
+     <div class="tile is-6" id="network-stats">
+        <article class="tile is-child notification is-primary">
+            <i class="fa fa-tasks" aria-hidden="true"></i> Stats</h3>
+            <div class="columns">
+                <div class="column">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><i class="fa fa-bars"></i> Height: <span id="networkHeight"></span></li>
+                        <li><i class="fa fa-exchange"></i> Transactions: <span id="networkTransactions"></span></li>
+                        <li><i class="fa fa-certificate"></i> Reward: <span id="currentReward"></span></li>
+                        <li><i class="fa fa-money"></i> Supply: <span id="totalCoins"></span></li>
+                        <li><i class="fa fa-percent" aria-hidden="true"></i> Emission: <span id="emissionPercent"></span> %</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></li>
+                        <li><i class="fa fa-lock"></i> Average Difficulty: <span id="avgDifficulty"></span></li>
+                        <li><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></li>
+                        <li><i class="fa fa-clock"></i> Average Hash Rate: <span id="avgHashrate"></span></li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </article>
     </div>
-    <div class="column">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-chart" aria-hidden="true"></i> Charts
-                    <span class="text-default" data-toggle="tooltip" data-placement="right" data-original-title="Difficulty based on last blocks from the list below. Block size, transactions count. Load more blocks to enlarge chart range."><i class="fa fa-question-circle"></i></span>
-                </h3>
-            </div>
-            <div class="panel-block chart-wrapper">
+
+    <div class="tile is-6">
+        <article class="tile is-child notification is-primary">
+            <h3 class="panel-title"><i class="fa fa-chart-line" aria-hidden="true"></i> Chart </h3>
+
+            <div class="chart-wrapper">
                 <canvas id="difficultyChart" height="210"></canvas>
             </div>
-        </div>
+        </article>
     </div>
 </div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-exchange" aria-hidden="true"></i> Transaction pool
+        <h3 class="panel-title"><i class="fa fa-exchange" aria-hidden="true"></i> Memory Pool
             <span id="mempool_count" class="badge"></span>
-            <span class="text-default" data-toggle="tooltip" data-placement="right" data-original-title="Recent transactions waiting to be included into a block. Once it happens a transaction gets into the blockchain and becomes confirmed."><i class="fa fa-question-circle"></i></span>
         </h3>
     </div>
     <div class="panel-block">
@@ -71,7 +63,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <i class="fa fa-chain" aria-hidden="true"></i> Recent blocks
+            <i class="fa fa-link" aria-hidden="true"></i> Recent blocks
             <span id="block-range-wrapper" style="float:right">Viewing Range: <span id="block-range">______ - ______</span></span>
         </h3>
     </div>
@@ -738,10 +730,6 @@
         diffChart.data.datasets[3].data = [].concat(Sizes).reverse();
         diffChart.update();
     }
-
-    $(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
 
     function getReadableTime(seconds) {
 
