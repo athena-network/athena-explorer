@@ -1,8 +1,8 @@
 <div class="tile is-ancestor">
-    <div class="tile is-parent is-6">
+    <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-5">Transaction Overview</p>
+                <p class="title size-is-5">Transaction</p>
                 <div>Hash: <span id="transaction.hash" style="word-break: break-all;"></span></div>
                 <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span>, First confirmation time: <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
                 <div>Fee: <span id="transaction.fee"></span></div>
@@ -11,26 +11,18 @@
                 <div id="div_transaction_paymentId">Payment ID: <span id="transaction.paymentId"></span>
                 <br />
                 Payment ID decoding: <em id="transaction.paymentIdDecifer"></em></div>
-                <div id="div_transaction_mixin">Mixin count: <span id="transaction.mixin"></span></div>
+                <div id="div_transaction_mixin">Mixin: <span id="transaction.mixin"></span></div>
                 <div id="tx_unconfirmed" style="display: none;"><span class="text-warning">Unconfirmed transaction</span></div>
-            </article>
-        </div>
-    </div>
-
-    <div class="tile is-parent is-6">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title size-is-5">Block Overview</p>
-                <div><i class="fa fa-circle-o"></i> Hash: <span id="block.hash" style="word-break: break-all;"></span></div>
-                <div><i class="fa fa-circle-o"></i> Height: <span id="block.height"></span></div>
-                <div><i class="fa fa-circle-o"></i> Timestamp: <span id="block.timestamp"></span></div>
+                <div>Block: <span id="block.hash" style="word-break: break-all;"></span></div>
+                <div>Height: <span id="block.height"></span></div>
+                <div>Timestamp: <span id="block.timestamp"></span></div>
             </article>
         </div>
     </div>
 </div>
 
 <div class="tile is-ancestor">
-    <div class="tile is-parent is-6">
+    <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
                 <p class="title size-is-5">Inputs (<span id="inputs_count"></span>)</p>
@@ -48,8 +40,9 @@
             </article>
         </div>
     </div>
-
-    <div class="tile is-parent is-6">
+</div>
+<div class="tile is-ancestor">
+    <div class="tile is-parent is-12">
             <div class="tile">
             <article class="tile is-child notification">
                 <p class="title size-is-5">Outputs (<span id="outputs_count"></span>)</p>
