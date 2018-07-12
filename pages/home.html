@@ -2,7 +2,8 @@
      <div class="tile is-parent is-6" id="network-stats">
         <div class="tile">
             <article class="tile is-child notification is-warning">
-                <i class="fa fa-tasks" aria-hidden="true"></i> Stats</h3>
+                <i class="fa fa-tasks" aria-hidden="true"></i> Overview</h3>
+                <hr>
                 <div class="columns">
                     <div class="column">
                         <ul class="nav nav-pills nav-stacked">
@@ -28,78 +29,75 @@
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification is-danger">
-                <h3 class="panel-title"><i class="fa fa-chart-line" aria-hidden="true"></i> Chart </h3>
-
+                <h3><i class="fa fa-chart-line" aria-hidden="true"></i> Chart </h3>
+                <hr>
                 <div class="chart-wrapper">
                     <canvas id="difficultyChart" height="210"></canvas>
                 </div>
             </article>
         </div>
     </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-exchange" aria-hidden="true"></i> Memory Pool
-            <span id="mempool_count" class="badge"></span>
-        </h3>
+
+    <div class="tile is-parent is-12">
+        <div class="tile">
+            <article class="tile is-child notification is-info">
+                <h3><i class="fa fa-memory" aria-hidden="true"></i> Memory Pool <span id="mempool_count" class="badge"></span></h3>
+                <hr>
+                <div class="table">
+                    <table class="table is-hoverable is-size-7" id="mem_pool_table">
+                        <thead>
+                            <tr>
+                                <!-- <th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th> Add this back when mempool json adds a-->
+                                <th width="10%"><i class="fa fa-money"></i> Amount</th>
+                                <th width="10%"><i class="fa fa-tag"></i> Fee</th>
+                                <th width="10%"><i class="fa fa-archive"></i> Size</th>
+                                <th width="40%"><i class="fa fa-paw"></i> Hash</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mem_pool_rows"></tbody>
+                    </table>
+                </div>
+            </article>
+        </div>
     </div>
-    <div class="panel-block">
-        <div class="table">
-            <table class="table is-hoverable is-size-7" id="mem_pool_table">
-                <thead>
-                    <tr>
-                        <!-- <th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th> Add this back when mempool json adds a-->
-                        <th width="10%"><i class="fa fa-money"></i> Amount</th>
-                        <th width="10%"><i class="fa fa-tag"></i> Fee</th>
-                        <th width="10%"><i class="fa fa-archive"></i> Size</th>
-                        <th width="40%"><i class="fa fa-paw"></i> Hash</th>
-                    </tr>
-                </thead>
-                <tbody id="mem_pool_rows">
-                </tbody>
-            </table>
+
+    <div class="tile is-parent is-12">
+        <div class="tile">
+            <article class="tile is-child notification is-success">
+                <h3><i class="fa fa-cubes" aria-hidden="true"></i> Latest Blocks <span id="block-range-wrapper" style="float:right">Viewing Range: <span id="block-range">______ - ______</span></span>                    </h3>
+                <hr>
+                <div class="input-group">
+                    <a id="next-page" href="#" class="btn btn-default input-group-addon disabled"><i class="fa fa-arrow-left" aria-hidden="true"></i> Newer</a>
+                    <span class="input-group-addon">№</span>
+                    <input id="goto-height" type="text" class="form-control" placeholder="Height">
+                    <a id="goto-height-go" href="#" class="btn btn-default input-group-addon">Go</a>
+                    <a id="prev-page" href="#" class="btn btn-default input-group-addon">Older <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="table">
+
+                    <table class="table is-hoverable is-size-7">
+                        <thead>
+                            <tr>
+                                <th><i class="fa fa-bars"></i> Height</th>
+                                <th><i class="fa fa-archive"></i> Size</th>
+                                <th><i class="fa fa-paw"></i> Block Hash</th>
+                                <th><i class="fa fa-unlock-alt"></i> Difficulty</th>
+                                <th><i class="fa fa-bars"></i> Txs</th>
+                                <th><i class="fa fa-clock-o"></i> Date &amp; time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="blocks_rows"></tbody>
+                    </table>
+
+                    <p class="has-text-centered">
+                        <button type="button" class="button is-black is-large" id="loadMoreBlocks">Load More</button>
+                    </p>
+                </div>
+            </article>
         </div>
     </div>
 </div>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <i class="fa fa-link" aria-hidden="true"></i> Recent blocks
-            <span id="block-range-wrapper" style="float:right">Viewing Range: <span id="block-range">______ - ______</span></span>
-        </h3>
-    </div>
-    <div class="panel-block">
-        <div class="input-group">
-            <a id="next-page" href="#" class="btn btn-default input-group-addon disabled"><i class="fa fa-arrow-left" aria-hidden="true"></i> Newer</a>
-            <span class="input-group-addon">№</span>
-            <input id="goto-height" type="text" class="form-control" placeholder="Height">
-            <a id="goto-height-go" href="#" class="btn btn-default input-group-addon">Go</a>
-            <a id="prev-page" href="#" class="btn btn-default input-group-addon">Older <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <div class="panel-block">
-            <div class="table">
-            <table class="table is-hoverable is-size-7">
-                <thead>
-                    <tr>
-                        <th><i class="fa fa-bars"></i> Height</th>
-                        <th><i class="fa fa-archive"></i> Size</th>
-                        <th><i class="fa fa-paw"></i> Block Hash</th>
-                        <th><i class="fa fa-unlock-alt"></i> Difficulty</th>
-                        <th><i class="fa fa-bars"></i> Txs</th>
-                        <th><i class="fa fa-clock-o"></i> Date &amp; time</th>
-                    </tr>
-                </thead>
-                <tbody id="blocks_rows">
-                </tbody>
-            </table>
-        </div>
-        <p class="has-text-centered">
-            <button type="button" class="button is-black is-large" id="loadMoreBlocks">Load More</button>
-        </p>
-    </div>
-</div>
 
 <script>
     var block,
