@@ -2,7 +2,7 @@
     <div class="tile is-parent is-6" id="network-stats">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-4">Pools Overview</p>
+                <p class="title size-is-5">Pools Overview</p>
                 <div class="columns" style="padding-top:20px;">
                     <div class="ccolumn">
                         <ul class="nav nav-pills nav-stacked">
@@ -26,23 +26,35 @@
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-4">> Estimate Mining Profits</p>
+                <p class="title size-is-5"> Estimate Mining Profits</p>
                 <div id="calcHashHolder">
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="calcHashRate" placeholder="Enter your hash rate">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
-                                <span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
-                            </button>
+
+                    <div class="field has-addons has-addons-right">
+
+                        <p class="control is-expanded">
+                            <input id="calcHashRate" class="input" type="number" placeholder="Hash Rate">
+                        </p>
+    
+                        <p class="control">
+                            <a type="button" class="button is-dark dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
+                                    <span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-right" role="menu" id="calcHashUnits">
                                 <li><a href="#" data-mul="0">H/s</a></li>
                                 <li><a href="#" data-mul="1">KH/s</a></li>
                                 <li><a href="#" data-mul="2">MH/s</a></li>
                             </ul>
-                        </div>
-                        <span class="input-group-addon">=</span>
-                        <span class="input-group-addon" id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> ATHX / day</span>
+                        </p>
+
+                        <p class="control">
+                            =
+                        </p>
+
+                        <p class="control">
+                            <span id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> ATHX / day</span>
+                        </p>
                     </div>
+       
                 </div>
             </article>
         </div>
@@ -53,9 +65,9 @@
     <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-4" id="network-hash">Pool Network</p>
+                <p class="title size-is-5" id="network-hash">Pool Network</p>
                 <div class="table">
-                    <table class="table is-hoverable is-fullwidth is-size-6" id="mem_pool_table">
+                    <table class="table is-hoverable is-fullwidth is-size-6" id="pools_rows">
                         <thead>
                             <tr>
                                 <th><span id="symbol"></span> Pools</th>
@@ -79,7 +91,7 @@
         <div class="tile is-parent is-12">
             <div class="tile">
                 <article class="tile is-child notification">
-                    <p class="title size-is-4" id="network-hash">Pool Chart</p>
+                    <p class="title size-is-5" id="network-hash">Pool Chart</p>
                     <canvas id="poolsChart" style="margin: 0 auto;" height="300"></canvas>
                 </article>
             </div>
