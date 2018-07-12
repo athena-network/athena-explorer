@@ -1,45 +1,39 @@
 <div class="tile is-ancestor">
     
     <div class="tile is-parent is-vertical is-3" id="network-stats">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <i class="fas fa-bars" aria-hidden="true"></i> <b>Height: </b> <span id="networkHeight" class="is-7"></span>
-            </article>    
-            <article class="tile is-child notification">
-                <i class="fas fa-exchange-alt" aria-hidden="true"></i> <b>Transactions: </b> <span id="networkTransactions" class="is-7"></span>
-            </article>    
-            <article class="tile is-child notification">
-                <i class="fas fa-coins" aria-hidden="true"></i> <b>Reward: </b> <span id="currentReward" class="is-7"></span>
-            </article>  
-            <article class="tile is-child notification">
-                <i class="fas fa-boxes" aria-hidden="true"></i> <b>Supply: </b> <span id="totalCoins" class="is-7"></span> (<span id="emissionPercent" class="is-7"></span>%)
-            </article>  
-        </div>
+        <article class="tile is-child notification">
+            <i class="fas fa-bars" aria-hidden="true"></i> <b>Height: </b> <span id="networkHeight" class="is-7"></span>
+        </article>    
+        <article class="tile is-child notification">
+            <i class="fas fa-exchange-alt" aria-hidden="true"></i> <b>Transactions: </b> <span id="networkTransactions" class="is-7"></span>
+        </article>    
+        <article class="tile is-child notification">
+            <i class="fas fa-coins" aria-hidden="true"></i> <b>Reward: </b> <span id="currentReward" class="is-7"></span>
+        </article>  
+        <article class="tile is-child notification">
+            <i class="fas fa-boxes" aria-hidden="true"></i> <b>Supply: </b> <span id="totalCoins" class="is-7"></span> (<span id="emissionPercent" class="is-7"></span>%)
+        </article>  
     </div>
-    
+
     <div class="tile is-parent is-vertical is-3" id="network-stats">
-        <div class="tile">
-            <article class="tile is-child notification">
-                    <i class="fas fa-unlock-alt" aria-hidden="true"></i> <b>Difficulty: </b> <span id="networkDifficulty" class="is-7"></span>
-            </article>    
-            <article class="tile is-child notification">
-                <i class="fas fa-lock" aria-hidden="true"></i> <b>&Delta; Difficulty: </b> <span id="avgDifficulty" class="is-7"></span>
-            </article>    
-            <article class="tile is-child notification">
-                <i class="fas fa-tachometer-alt" aria-hidden="true"></i> <b>Hash Rate: </b> <span id="networkHashrate" class="is-7"></span>
-            </article>  
-            <article class="tile is-child notification">
-                <i class="fas fa-clock" aria-hidden="true"></i> <b>Supply: </b> <span id="avgHashrate" class="is-7"></span>
-            </article>
-        </div>
+        <article class="tile is-child notification">
+                <i class="fas fa-unlock-alt" aria-hidden="true"></i> <b>Difficulty: </b> <span id="networkDifficulty" class="is-7"></span>
+        </article>    
+        <article class="tile is-child notification">
+            <i class="fas fa-lock" aria-hidden="true"></i> <b>&Delta; Difficulty: </b> <span id="avgDifficulty" class="is-7"></span>
+        </article>    
+        <article class="tile is-child notification">
+            <i class="fas fa-tachometer-alt" aria-hidden="true"></i> <b>Hash Rate: </b> <span id="networkHashrate" class="is-7"></span>
+        </article>  
+        <article class="tile is-child notification">
+            <i class="fas fa-clock" aria-hidden="true"></i> <b>Supply: </b> <span id="avgHashrate" class="is-7"></span>
+        </article>
     </div>
  
     <div class="tile is-parent is-6">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <canvas id="difficultyChart" height="175"></canvas>
-            </article>
-        </div>
+        <article class="tile is-child notification">
+            <canvas id="difficultyChart" height="175"></canvas>
+        </article>
     </div>
 </div>
 <div class="tile is-ancestor">
