@@ -3,7 +3,7 @@
         <article class="tile is-child notification is-warning" >
             <p class="title size-is-5 has-text-centered">Unconfirmed </p>
         </article>
-    </div>
+    </difev>
 </div>
 
 <div class="tile is-ancestor">
@@ -14,14 +14,24 @@
     </div>
 </div>
 
-<div class="tile is-ancestor" id="div_transaction_paymentId">
-    <div class="tile is-parent is-12">
-        <article class="tile is-child notification">
-           <p><i class="fa fa-hashtag"></i> Payment ID <span id="transaction.paymentId"></span></p>
-        </article>
+<div id="div_transaction_paymentId">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-12">
+            <article class="tile is-child notification">
+            <p><i class="fa fa-hashtag"></i> <b>Payment ID: </b> <span id="transaction.paymentId"></span></p>
+            </article>
+        </div>
+    </div>
+
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-12">
+            <article class="tile is-child notification">
+                <p><i class="fa fa-hashtag"></i> <b>Decoded: </b> <em id="transaction.paymentIdDecifer"></em></p>
+            </article>
+        </div>
     </div>
 </div>
-
+    
 <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
         <article class="tile is-child notification is-size-6">
