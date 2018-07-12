@@ -29,82 +29,76 @@
     </div>
 
     <div class="tile is-parent is-6">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title is-4"> Estimate Mining Profits</p>
-                <div id="calcHashHolder">
+        <article class="tile is-child notification">
+            <p class="title is-4"> Estimate Mining Profits</p>
+            <div id="calcHashHolder">
 
-                    <div class="field has-addons has-addons-right">
+                <div class="field has-addons has-addons-right">
 
-                        <p class="control is-expanded">
-                            <input id="calcHashRate" class="input" type="number" placeholder="Hash Rate">
-                        </p>
+                    <p class="control is-expanded">
+                        <input id="calcHashRate" class="input" type="number" placeholder="Hash Rate">
+                    </p>
+
+                    <p class="control">
+                        <div class="select is-dark"  data-mul="1"id="calcHashUnit">
+                            <select name="country">
+                                <option value="0"><a href="#" data-mul="0">H/s</a></option>
+                                <option value="1"><a href="#" data-mul="1">KH/s</a></option>
+                                <option value="2"><a href="#" data-mul="2">MH/s</a></option>
+                            </select>
+                        </div>
+                
+                    </p>
+
+                    <p class="control">
+                        <button class="button is-white">
+                            =
+                        </button>
+                    </p>
+
+                    <p class="control">
+                        <button class="button is-dark">
+                            <span id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> ATHX / day</span>
+                        </button>
+                    </p>
+                </div>
     
-                        <p class="control">
-                            <div class="select is-dark"  data-mul="1"id="calcHashUnit">
-                                <select name="country">
-                                    <option value="0"><a href="#" data-mul="0">H/s</a></option>
-                                    <option value="1"><a href="#" data-mul="1">KH/s</a></option>
-                                    <option value="2"><a href="#" data-mul="2">MH/s</a></option>
-                                </select>
-                            </div>
-                 
-                        </p>
-
-                        <p class="control">
-                            <button class="button is-white">
-                                =
-                            </button>
-                        </p>
-
-                        <p class="control">
-                            <button class="button is-dark">
-                                <span id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> ATHX / day</span>
-                            </button>
-                        </p>
-                    </div>
-       
-                </div>
-            </article>
-        </div>
+            </div>
+        </article>
     </div>
 </div>
 
 <div class="tile is-ancestor">
     <div class="tile is-parent is-12">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title is-4">Pool Network</p>
-                <div class="table">
-                    <table class="table is-hoverable is-fullwidth is-5" id="network-hash">
-                        <thead>
-                            <tr>
-                                <th>Pools</th>
-                                <th>Height</th>
-                                <th>Hashrate</th>
-                                <th>Miners</th>
-                                <th>Total Fee</th>
-                                <th>Payout</th>
-                                <th>Last Block</th>
-                            </tr>
-                        </thead>
-                        <tbody id="pools_rows"></tbody>
-                    </table>
-                </div>
-            </article>
-        </div>
+        <article class="tile is-child notification">
+            <p class="title is-4">Pool Network</p>
+            <div class="table">
+                <table class="table is-hoverable is-fullwidth size-is-6" id="network-hash">
+                    <thead>
+                        <tr>
+                            <th>Pools</th>
+                            <th>Height</th>
+                            <th>Hashrate</th>
+                            <th>Miners</th>
+                            <th>Total Fee</th>
+                            <th>Payout</th>
+                            <th>Last Block</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pools_rows"></tbody>
+                </table>
+            </div>
+        </article>
     </div>
 </div>
 
 <div class="tile is-ancestor">
     <div class="tile is-parent is-12">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <div  height="300px" width="300px" style="margin: 0 auto;">
-                        <canvas id="poolsChart"></canvas>
-                </div>
-            </article>
-        </div>
+        <article class="tile is-child notification">
+            <div  height="300px" width="300px" style="margin: 0 auto;">
+                    <canvas id="poolsChart"></canvas>
+            </div>
+        </article>
     </div>
 </div>
 
