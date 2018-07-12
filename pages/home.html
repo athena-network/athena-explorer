@@ -2,7 +2,7 @@
      <div class="tile is-parent is-6" id="network-stats">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-5">Overview</p>
+                <p class="title is-4">Overview</p>
                 <div class="columns" style="padding-top:20px;">
                     <div class="column">
                         <ul class="nav nav-pills nav-stacked">
@@ -28,7 +28,7 @@
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-5">Chart</p>
+                <p class="title is-4">Chart</p>
                 <div class="chart-wrapper">
                     <canvas id="difficultyChart" height="210"></canvas>
                 </div>
@@ -40,16 +40,15 @@
     <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title size-is-5 badge is-badge-info" id="mempool_count">Memory Pool</p>
+                <p class="title is-4 badge is-badge-info" id="mempool_count">Memory Pool</p>
                 <div class="table">
-                    <table class="table is-hoverable is-fullwidth is-size-6" id="mem_pool_table">
+                    <table class="table is-hoverable is-fullwidth is-5" id="mem_pool_table">
                         <thead>
                             <tr>
-                                <!-- <th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th> Add this back when mempool json adds a-->
-                                <th width="10%"><i class="fa fa-money"></i> Amount</th>
-                                <th width="10%"><i class="fa fa-tag"></i> Fee</th>
-                                <th width="10%"><i class="fa fa-archive"></i> Size</th>
-                                <th width="40%"><i class="fa fa-paw"></i> Hash</th>
+                                <th width="10%">Amount</th>
+                                <th width="10%">Fee</th>
+                                <th width="10%">Size</th>
+                                <th width="40%">Hash</th>
                             </tr>
                         </thead>
                         <tbody id="mem_pool_rows"></tbody>
@@ -61,45 +60,44 @@
 </div>    
 <div class="tile is-ancestor">
     <div class="tile is-parent is-12">
-        <div class="tile size-is-5">
+        <div class="tile is-4">
             <article class="tile is-child notification">
                 <div class="level">
                     <div class="level-left">
-                            <p class="title">Latest Blocks</p>
+                            <p class="title is-4">Latest Blocks</p>
                     </div>
                     <div class="level-right">
-                            <p class="is-size-6">Viewing Range: <span id="block-range">______ - ______</span></p>
+                            <p class="is-5">Viewing Range: <span id="block-range">______ - ______</span></p>
                     </div>
                 </div>
               
                 <div class="field has-addons has-addons-right">
 
                     <p class="control">
-                    <a id="prev-page" href="#" class="button is-dark">
-                        Older
-                    </a>
-                        </p>
+                        <a id="prev-page" href="#" class="button is-dark">
+                            Older
+                        </a>
+                    </p>
                     <p class="control is-expanded">
                         <input id="goto-height" class="input" type="text" placeholder="Block Height">
                     </p>
 
                     <p class="control">
-                        <a id="prev-page" href="#" class="button is-back">
+                        <a id="goto-height-go" href="#" class="button is-back">
                             Go
                         </a>
                     </p>
                     <p class="control">
-                            <a id="next-page" href="#" class="button is-dark disabled">
-                                Newer
-                            </a>
-                    </p>
-         
+                        <a id="next-page" href="#" class="button is-dark disabled">
+                            Newer
+                        </a>
+                     </p>
                 </div>
 
                 <hr>
                 <div class="table">
 
-                    <table class="table is-hoverable is-fullwidth is-size-6">
+                    <table class="table is-hoverable is-fullwidth is-5">
                         <thead>
                             <tr>
                                 <th><i class="fa fa-bars"></i> Height</th>
