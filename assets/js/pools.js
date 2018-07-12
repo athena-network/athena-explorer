@@ -47,7 +47,7 @@ var renderPoolRow = function(host, name, data, d) {
     pools_row.push('<td id=miners-'+name+'>'+localizeNumber(data.pool.miners)+'</td>');
     pools_row.push('<td id=totalFee-'+name+'>'+calculateTotalFee(data)+'%</td>');
     pools_row.push('<td id=minPayout-'+name+'>'+getReadableCoins(data.config.minPaymentThreshold,2, ' ')+'</td>');
-    pools_row.push('<td><span id=lastFound-'+name+'><span class="timeago" id="ago-'+name+'">'+agostring+'</span></td>');
+    pools_row.push('<td><span class="timeago" id="ago-'+name+'">'+agostring+'</span></td>');
     pools_row.push('</tr>');
 
     return pools_row.join('');
@@ -75,6 +75,7 @@ var displayChart = function displayChart() {
     // actually gathered, these numbers can be a bit wishy-washy when hashrate
     // flucuates in the moment. Occasionally pool rates will be greater than
     // the total hashrate, and the graph doesn't appreciate negative numbers.
+
     var poolsRate = poolStats.reduce(function(v, p) { return v + p[1]; }, 0);
     var networkRate = Math.floor(lastStats.difficulty / blockTargetInterval);
     var unknownRate = Math.max(0, networkRate - poolsRate);
@@ -102,18 +103,18 @@ var displayChart = function displayChart() {
     if (poolsChart === null) {
         var options = {
             animation: {
-                duration: 0
+                duration: 1000
             },
             title: {
                 display: true,
                 text: 'Network Hashrate Visualization',
-                fontSize: 18,
-                fontColor: '#2ecc71'
+                fontSize: 24,
+                fontColor: '#000'
             },
             legend: {
                 position: 'bottom',
                 labels: {
-                    fontColor: '#c8c8c8'
+                    fontColor: '#000'
                 },
             },
             layout: {
