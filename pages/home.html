@@ -16,13 +16,15 @@
 
         <article class="tile is-child notification is-size-6">
             <i class="fas fa-coins" aria-hidden="true"></i> <b>Reward: </b> <span id="currentReward"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6">
+                <i class="fas fa-signal" aria-hidden="true" ></i> <b>Emision: </b> <span id="emissionPercent"></span>            
         </article>  
+            
     </div>
 
     <div class="tile is-parent is-vertical is-3">
-        <article class="tile is-child notification is-size-6">
-            <i class="fas fa-signal" aria-hidden="true" ></i> <b>Emision: </b> <span id="emissionPercent"></span>            
-        </article>  
         <article class="tile is-child notification is-size-6">
             <i class="fas fa-lock" aria-hidden="true"></i> <b>Difficulty: </b> <span id="networkDifficulty"></span>
         </article>  
@@ -37,7 +39,11 @@
 
         <article class="tile is-child notification is-size-6">
                 <i class="fas fa-clock" aria-hidden="true"></i> <b>Avg. Hash: </b> <span id="avgHashrate"></span>
-        </article>  
+        </article> 
+        <article class="tile is-child notification is-size-6">
+                <i class="fas fa-cubes" aria-hidden="true"></i> <b>Block Solve Time: </b> <span id="blockSolveTime"></span>
+        </article> 
+
     </div>
  
     <div class="tile is-parent is-6">
@@ -449,7 +455,7 @@
 
         updateText('avgDifficulty', getReadableDifficultyString(avgDiff, 0).toString());
         updateText('avgHashrate', getReadableHashRateString(avgDiff / blockTargetInterval));
-        //updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate)); Add back after timestamp is added to mempool
+        updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate));
     }
 
     //  Turtle MemPool Transactions
