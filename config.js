@@ -7,7 +7,8 @@ var refreshDelay = 3600000;
 // pools stats by MainCoins
 var networkStat = {
  "athx": [
-	["athx.host", "http://pool.athx.host:1117"],
+	["pool.athx.host", "http://pool.athx.host:1117"],
+	["athena.pool.yt", "https://athena.pool.yt:3512"],
  ]
 };
 
