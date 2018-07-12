@@ -1,9 +1,9 @@
 <div class="tile is-ancestor">
      <div class="tile is-parent is-6" id="network-stats">
         <div class="tile">
+            <h3 class="is-black">Overview</h3>
             <article class="tile is-child notification is-warning">
-                <i class="fa fa-tasks" aria-hidden="true"></i> Overview</h3>
-                <hr>
+                <Overview</h3>
                 <div class="columns">
                     <div class="column">
                         <ul class="nav nav-pills nav-stacked">
@@ -30,7 +30,6 @@
         <div class="tile">
             <article class="tile is-child notification is-danger">
                 <h3><i class="fa fa-chart-line" aria-hidden="true"></i> Chart </h3>
-                <hr>
                 <div class="chart-wrapper">
                     <canvas id="difficultyChart" height="210"></canvas>
                 </div>
@@ -43,9 +42,8 @@
         <div class="tile">
             <article class="tile is-child notification is-info">
                 <h3><i class="fa fa-memory" aria-hidden="true"></i> Memory Pool <span id="mempool_count" class="badge"></span></h3>
-                <hr>
                 <div class="table">
-                    <table class="table is-hoverable is-transparent is-size-7" id="mem_pool_table">
+                    <table class="table is-hoverable is-fullwidth is-size-6" id="mem_pool_table">
                         <thead>
                             <tr>
                                 <!-- <th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th> Add this back when mempool json adds a-->
@@ -67,7 +65,6 @@
         <div class="tile">
             <article class="tile is-child notification is-success">
                 <h3><i class="fa fa-cubes" aria-hidden="true"></i> Latest Blocks <span id="block-range-wrapper" style="float:right">Viewing Range: <span id="block-range">______ - ______</span></span>                    </h3>
-                <hr>
                 <div class="input-group">
                     <a id="next-page" href="#" class="btn btn-default input-group-addon disabled"><i class="fa fa-arrow-left" aria-hidden="true"></i> Newer</a>
                     <span class="input-group-addon">№</span>
@@ -75,9 +72,10 @@
                     <a id="goto-height-go" href="#" class="btn btn-default input-group-addon">Go</a>
                     <a id="prev-page" href="#" class="btn btn-default input-group-addon">Older <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
+                <hr>
                 <div class="table">
 
-                    <table class="table is-hoverable is-transparent is-size-7">
+                    <table class="table is-hoverable is-fullwidth is-size-6">
                         <thead>
                             <tr>
                                 <th><i class="fa fa-bars"></i> Height</th>
