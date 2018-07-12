@@ -185,7 +185,7 @@
 	}
 
     function getInputCells(input){
-        return '<td>' + getReadableCoins(input.value.amount) + '</td>' +
+        return '<td>' + getReadableCoins(input.value.amount, '2', ' ') + '</td>' +
             '<td>' + input.value.k_image + '</td>';
     }
 
@@ -233,7 +233,7 @@
 
 
     function getOutputCells(output){
-        return '<td>' + getReadableCoins(output.amount) + '</td>' +
+        return '<td>' + getReadableCoins(output.amount, '2', ' ') + '</td>' +
             '<td>' + output.target.data.key + '</td>';
     }
 
