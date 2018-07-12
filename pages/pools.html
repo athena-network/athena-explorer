@@ -2,15 +2,15 @@
 
     <div class="tile is-parent is-vertical is-3">
         <article class="tile is-child notification is-size-6" style="padding-top:30px;">
-            <i class="fas fa-tachometer" aria-hidden="true"></i> <b>Pool Speed: </b> <span id="totalPoolsHashrate"></span>
+            <i class="fas fa-bolt" aria-hidden="true"></i> <b>Pools: </b> <span id="totalPoolsHashrate"></span>
         </article>   
 
         <article class="tile is-child notification is-size-6" style="padding-top:30px;">
-            <i class="fas fa-leaf" aria-hidden="true"></i> <b>Network Speed: </b> <span id="networkHashrate"></span>
+            <i class="fas fa-leaf" aria-hidden="true"></i> <b>Network: </b> <span id="networkHashrate"></span>
         </article>
 
         <article class="tile is-child notification is-size-6" style="padding-top:30px;">
-            <i class="fas fa-tachometer" aria-hidden="true"></i> <b>Total Miners: </b> <span id="total_miners"></span>
+            <i class="fas fa-users" aria-hidden="true"></i> <b>Total Miners: </b> <span id="total_miners"></span>
         </article>   
     </div>
 
@@ -24,10 +24,10 @@
         </article>
 
         <article class="tile is-child notification is-size-6" style="padding-top:30px;">
-            <i class="fas fa-tachometer" aria-hidden="true"></i> <b>Avg. Hash Rate: </b> <span id="avgHashrate"></span>
+            <i class="fas fa-tachometer-alt" aria-hidden="true"></i> <b>Avg. Hash Rate: </b> <span id="avgHashrate"></span>
         </article>   
     </div>
-    
+
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification">
@@ -79,13 +79,13 @@
                     <table class="table is-hoverable is-fullwidth is-5" id="network-hash">
                         <thead>
                             <tr>
-                                <th><span id="symbol"></span> Pools</th>
-                                <th><i class="fa fa-bars"></i> Height</th>
-                                <th><i class="fa fa-tachometer"></i> Hashrate</th>
-                                <th><i class="fa fa-group"></i> Miners</th>
-                                <th><i class="fa fa-money"></i> Total Fee</th>
-                                <th><i class="fa fa-sign-out"></i> Min. Payout</th>
-                                <th><i class="fa fa-clock-o"></i> Last Block Found</th>
+                                <th>Pools</th>
+                                <th>Height</th>
+                                <th>Hashrate</th>
+                                <th>Miners</th>
+                                <th>Total Fee</th>
+                                <th>Payout</th>
+                                <th>Last Block</th>
                             </tr>
                         </thead>
                         <tbody id="pools_rows"></tbody>
@@ -101,7 +101,7 @@
             <div class="tile">
                 <article class="tile is-child notification">
                     <p class="title is-4" id="network-hash">Pool Chart</p>
-                    <canvas id="poolsChart" style="margin: 0 auto;" height="300" width="300"></canvas>
+                    <canvas id="poolsChart" style="margin: 0 auto;" height="300px" width="300px"></canvas>
                 </article>
             </div>
         </div>
