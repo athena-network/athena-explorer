@@ -226,6 +226,8 @@ setInterval(function(){
     totalMiners = 0;
     poolStats = [];
     NETWORK_STAT_MAP.forEach(function(url, host, map) {
+console.log('url : ' + url)
+console.log('url : ' + host)
 
         var index = host.indexOf("/");
         var poolName;
