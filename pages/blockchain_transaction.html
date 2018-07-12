@@ -35,7 +35,7 @@
 <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
         <article class="tile is-child notification is-size-6">
-            <i class="fas fa-check" aria-hidden="true"></i> <div id="confirmations" style="display: none;"> <i class="fa fa-question-circle"></i><b>Confirmations: </b> <span id="transaction.confirmations"></span>, First confirmation time: <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
+            <i class="fas fa-check" aria-hidden="true"></i> <b>Confirmations: </b> <div id="confirmations" style="display: none;"> <span id="transaction.confirmations"></span></div>
         </article>
 
         <article class="tile is-child notification is-size-6">
@@ -159,8 +159,6 @@
                 if (block.hash){
 					$('#confirmations').show();
 					updateText('transaction.confirmations', localizeNumber(lastStats.height - block.height));
-					updateText('transaction.timestamp', formatDate(block.timestamp));
-					$(".transaction-timeago").timeago('update', new Date(block.timestamp * 1000).toISOString());
 				}
                 updateText('transaction.amount_out', getReadableCoins(details.amount_out));
                 updateText('transaction.fee', getReadableCoins(details.fee));
