@@ -2,9 +2,9 @@
     <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title is-size-5">Transaction</p>
+                <p class="title is-size-4">Transaction</p>
                 <div>Hash: <span id="transaction.hash" style="word-break: break-all;"></span></div>
-                <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span>, First confirmation time: <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
+                <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span> <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
                 <div>Fee: <span id="transaction.fee"></span></div>
                 <div>Sum of outputs: <span id="transaction.amount_out"></span></div>
                 <div>Size: <span id="transaction.size"></span></div>
@@ -12,7 +12,9 @@
                 <br />
                 Payment ID decoding: <em id="transaction.paymentIdDecifer"></em></div>
                 <div id="div_transaction_mixin">Mixin: <span id="transaction.mixin"></span></div>
-                <div id="tx_unconfirmed" style="display: none;"><span class="text-warning">Unconfirmed transaction</span></div>
+                <div id="tx_unconfirmed" style="display: none;"><span class="text-warning">Unconfirmed Transaction</span></div>
+                </b>
+                <strong>Block Details</strong>
                 <div>Block: <span id="block.hash" style="word-break: break-all;"></span></div>
                 <div>Height: <span id="block.height"></span></div>
                 <div>Timestamp: <span id="block.timestamp"></span></div>
@@ -25,7 +27,7 @@
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title is-size-5">Inputs (<span id="inputs_count"></span>)</p>
+                <p class="title is-size-">Inputs (<span id="inputs_count"></span>)</p>
                 <div class="table">
                     <table class="table table-hover is-size-6">
                         <thead>
@@ -43,7 +45,7 @@
     <div class="tile is-parent is-6">
             <div class="tile">
             <article class="tile is-child notification">
-                <p class="title is-size-5">Outputs (<span id="outputs_count"></span>)</p>
+                <p class="title is-size-4">Outputs (<span id="outputs_count"></span>)</p>
                 <div class="table">
                     <table class="table table-hover is-size-6">
                         <thead>
