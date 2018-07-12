@@ -215,9 +215,9 @@
                     cache: 'false',
                     success: function(data) {
                     block = data.result.block;
-                        updateText('totalCoins', getReadableCoins(block.alreadyGeneratedCoins, 2, ''));
+                        updateText('totalCoins', getReadableCoins(block.alreadyGeneratedCoins, 2, ' '));
                         updateText('emissionPercent', (block.alreadyGeneratedCoins / 100000000000000 * 100).toFixed(4));
-                        updateText('currentReward', getReadableCoins(block.baseReward, 4, ''));
+                        updateText('currentReward', getReadableCoins(block.baseReward, 4, 'test'));
                     }
                 });
             }
