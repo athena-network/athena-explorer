@@ -1,67 +1,100 @@
 <div class="tile is-ancestor">
+
     <div class="tile is-parent is-12">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title size-is-4">Transaction</p>
-                <div class="columns">
-                    <div class="column">
-                        <div>Tx Hash: <span id="transaction.hash" style="word-break: break-all;"></span></div>
-                        <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span> <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)</div>
-                        <div>Fee: <span id="transaction.fee"></span></div>
-                        <div>Sum of outputs: <span id="transaction.amount_out"></span></div>
-                        <div>Size: <span id="transaction.size"></span></div>
-                        <div id="div_transaction_paymentId">Payment ID: <span id="transaction.paymentId"></span>
-                        <br />
-                        Payment ID decoding: <em id="transaction.paymentIdDecifer"></em></div>
-                        <div id="div_transaction_mixin">Mixin: <span id="transaction.mixin"></span></div>
-                        <div id="tx_unconfirmed" style="display: none;"><span class="text-warning">Unconfirmed Transaction</span></div>
-                    </div>
-                    <div class="column">
-                        <div>Block Hash: <span id="block.hash" style="word-break: break-all;"></span></div>
-                        <div>Height: <span id="block.height"></span></div>
-                        <div>Timestamp: <span id="block.timestamp"></span></div>
-                    </div>
-            </article>
-        </div>
+        <article class="tile is-child notification is-warning" id="tx_unconfirmed" style="display: none;">
+            <p class="title size-is-4 has-text-centered">Unconfirmed </p>
+        </article>
     </div>
+
+    <div class="tile is-parent is-12">
+        <article class="tile is-child notification">
+            <p class="title size-is-4">Transaction <span id="transaction.hash" style="word-break: break-all;"></span></p>
+        </article>
+    </div>
+
+    <div class="tile is-parent is-12">
+        <article class="tile is-child notification" id="div_transaction_paymentId">
+            <div>
+                <p class="title size-is-4">Payment ID <span id="transaction.paymentId"></span></p>
+            </div>
+            <div>
+                <p class="title size-is-4">Payment ID decoding: <em id="transaction.paymentIdDecifer"></em></p>
+            </div>
+        </article>
+    </div>
+
 </div>
 
 <div class="tile is-ancestor">
+    <div class="tile is-parent is-vertical is-6">
+        <article class="tile is-child notification is-size-6">
+            <i class="fas fa-check" aria-hidden="true"></i> <b>Confirmation: </b> <div id="confirmations" style="display: none;">Confirmations: <span id="transaction.confirmations"></span> <span id="transaction.timestamp"></span> (<time class="transaction-timeago"></time>)
+        </article>   
+
+        <article class="tile is-child notification is-size-6">
+            <i class="fas fa-money-bill-alt" aria-hidden="true"></i> <b>Fee: </b> <span id="transaction.fee"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6">
+            <i class="fas fa-code-dot-circle" aria-hidden="true"></i> <b>Outputs: </b> <span id="transaction.amount_out"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6">
+                <i class="fas fa-file" aria-hidden="true"></i> <b>Size: </b> <span id="transaction.size"></span>
+        </article>	
+    </div>
+
+    <div class="tile is-parent is-vertical is-6">
+        <article class="tile is-child notification is-size-6">
+                <i class="fas fa-money-bill-alt" aria-hidden="true"></i> <b>Mixin: </b> <span id="transaction.mixin"></span>
+            </article>   
+
+        <article class="tile is-child notification is-size-6">
+            <i class="fas fa-money-bill-alt" aria-hidden="true"></i> <b>Block Hash: </b> <span id="block.hash" style="word-break: break-all;"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6">
+            <i class="fas fa-code-dot-circle" aria-hidden="true"></i> <b>Height: </b> <span id="transaction.height"></span>
+        </article>
+
+        <article class="tile is-child notification is-size-6">
+                <i class="fas fa-file" aria-hidden="true"></i> <b>Timestamp: </b> <span id="transaction.timestamp"></span>
+        </article>	
+    </div>
+</div>
+ 
+<div class="tile is-ancestor">
     <div class="tile is-parent is-6">
-        <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title size-is-4">Inputs (<span id="inputs_count"></span>)</p>
-                <div class="table">
-                    <table class="table table-hover is-5">
-                        <thead>
-                        <tr>
-                            <th><i class="fa fa-money"></i> Amount</th>
-                            <th><i class="fa fa-paw"></i> Image</th>
-                        </tr>
-                        </thead>
-                        <tbody id="inputs_rows"></tbody>
-                    </table>
-                </div>
-            </article>
-        </div>
+        <article class="tile is-child notification">
+            <p class="title size-is-4">Inputs (<span id="inputs_count"></span>)</p>
+            <div class="table">
+                <table class="table table-hover table-fullwidth size-is-7">
+                    <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Image</th>
+                    </tr>
+                    </thead>
+                    <tbody id="inputs_rows"></tbody>
+                </table>
+            </div>
+        </article>
     </div>
     <div class="tile is-parent is-6">
-            <div class="tile">
-            <article class="tile is-child notification">
-                <p class="title size-is-4">Outputs (<span id="outputs_count"></span>)</p>
-                <div class="table">
-                    <table class="table table-hover is-5">
-                        <thead>
-                        <tr>
-                            <th><i class="fa fa-money"></i> Amount</th>
-                            <th><i class="fa fa-paw"></i> Image</th>
-                        </tr>
-                        </thead>
-                        <tbody id="outputs_rows"></tbody>
-                    </table>
-                </div>
-            </article>
-        </div>
+        <article class="tile is-child notification">
+            <p class="title size-is-4">Outputs (<span id="outputs_count"></span>)</p>
+            <div class="table">
+                <table class="table table-hover table-fullwidth size-is-7">
+                    <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Image</th>
+                    </tr>
+                    </thead>
+                    <tbody id="outputs_rows"></tbody>
+                </table>
+            </div>
+        </article>
     </div>
 </div>
 
