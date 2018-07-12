@@ -216,9 +216,6 @@ NETWORK_STAT_MAP2.forEach(function(url, host, map) {
         lazyRefreshChart();
     });
 });
-console.log(networkStat)
-console.log(NETWORK_STAT_MAP)
-
 
 setInterval(function(){
 
@@ -226,8 +223,7 @@ setInterval(function(){
     totalMiners = 0;
     poolStats = [];
     NETWORK_STAT_MAP.forEach(function(url, host, map) {
-console.log('url : ' + url)
-console.log('url : ' + host)
+
 
         var index = host.indexOf("/");
         var poolName;
@@ -390,7 +386,7 @@ function renderLastBlock(){
 /* Hash Profitability Calculator */
 
 $('#calcHashRate').keyup(calcEstimateProfit).change(calcEstimateProfit);
-$('#calcHashUnits > li > a').click(function(e){
+$('#calcHashUnits > a').click(function(e){
     e.preventDefault();
     $('#calcHashUnit').text($(this).text()).data('mul', $(this).data('mul'));
     calcEstimateProfit();
