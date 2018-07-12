@@ -16,9 +16,10 @@
 
         <article class="tile is-child notification is-size-6">
             <i class="fas fa-coins" aria-hidden="true"></i> <b>Reward: </b> <span id="currentReward"></span>
+            <br>
+            <i class="fas fa-signal" aria-hidden="true"></i> <b>Emision: </b> <span id="emissionPercent"></span>
         </article>  
 
-        <!---<i class="fas fa-signal" aria-hidden="true"></i> <b>Emision: </b> <span id="emissionPercent"></span>-->
         
     </div>
 
@@ -496,7 +497,7 @@
                     }
                 }
                 //updateText('mempool_count', document.querySelectorAll('#mem_pool_rows tr').length);
-                console.log(document.querySelectorAll('#mem_pool_rows tr').lengt)
+                console.log(document.querySelectorAll('#mem_pool_rows tr').length)
                 $('#mempool_count').data('badge', document.querySelectorAll('#mem_pool_rows tr').length);
             },
             error: function(data) {console.log(data);}

@@ -97,25 +97,16 @@
 </div>
 
 <div class="tile is-ancestor">
-        <div class="tile is-parent is-12">
-            <div class="tile">
-                <article class="tile is-child notification">
-                    <p class="title is-4" id="network-hash">Pool Chart</p>
-                    <canvas id="poolsChart" style="margin: 0 auto;" height="300px" width="300px"></canvas>
-                </article>
-            </div>
-        </div>
-    </div>
-
-    
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
+    <div class="tile is-parent is-12">
+        <div class="tile">
+            <article class="tile is-child notification">
+                <div  height="300px" width="300px" style="margin: 0 auto;">
+                        <canvas id="poolsChart"></canvas>
+                </div>
+            </article>
         </div>
     </div>
 </div>
-
-<br />
 
 <script src="./assets/js/Chart.bundle.min.js"></script>
 <script src="./assets/js/color-hash.js"></script>
