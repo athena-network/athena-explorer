@@ -36,7 +36,7 @@
                         </p>
     
                         <p class="control">
-                            <div class="select is-fullwidth"  data-mul="1"id="calcHashUnit">
+                            <div class="select is-dark"  data-mul="1"id="calcHashUnit">
                                 <select name="country">
                                     <option value="0"><a href="#" data-mul="0">H/s</a></option>
                                     <option value="1"><a href="#" data-mul="1">KH/s</a></option>
@@ -47,11 +47,16 @@
                         </p>
 
                         <p class="control">
-                            =
+                            <button class="button is-dark">
+                                =
+                            </button>
                         </p>
 
                         <p class="control">
-                            <span id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> ATHX / day</span>
+                            <button class="button is-dark">
+                                <span id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> ATHX / day</span>
+                            </button>
+
                         </p>
                     </div>
        
@@ -71,11 +76,11 @@
                         <thead>
                             <tr>
                                 <th><span id="symbol"></span> Pools</th>
-                                <th class="sorttable_numeric"><i class="fa fa-bars"></i> Height</th>
-                                <th class="sorttable_numeric"><i class="fa fa-tachometer"></i> Hashrate</th>
-                                <th class="sorttable_numeric"><i class="fa fa-group"></i> Miners</th>
-                                <th class="sorttable_numeric"><i class="fa fa-money"></i> Total Fee</th>
-                                <th class="sorttable_numeric"><i class="fa fa-sign-out"></i> Min. Payout</th>
+                                <th><i class="fa fa-bars"></i> Height</th>
+                                <th><i class="fa fa-tachometer"></i> Hashrate</th>
+                                <th><i class="fa fa-group"></i> Miners</th>
+                                <th><i class="fa fa-money"></i> Total Fee</th>
+                                <th><i class="fa fa-sign-out"></i> Min. Payout</th>
                                 <th><i class="fa fa-clock-o"></i> Last Block Found</th>
                             </tr>
                         </thead>
@@ -110,5 +115,4 @@
 
 <script src="js/Chart.bundle.min.js"></script>
 <script src="js/color-hash.js"></script>
-<script src="js/sorttable.js"></script>
 <script src="js/pools.js"></script>
