@@ -1,4 +1,3 @@
-.table {
+.table, th, tr {
     background-color: transparent;
-    color: #ffffff;
 }
