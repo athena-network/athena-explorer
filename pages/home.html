@@ -2,7 +2,7 @@
      <div class="tile is-parent is-6" id="network-stats">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title title-is-4">Overview</p>
+                <p class="title title-is-5">Overview</p>
                 <div class="columns" style="padding-top:20px;">
                     <div class="column">
                         <ul class="nav nav-pills nav-stacked">
@@ -28,7 +28,7 @@
     <div class="tile is-parent is-6">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title title-is-4">Chart</p>
+                <p class="title title-is-5">Chart</p>
                 <div class="chart-wrapper">
                     <canvas id="difficultyChart" height="210"></canvas>
                 </div>
@@ -40,7 +40,7 @@
     <div class="tile is-parent is-12">
         <div class="tile">
             <article class="tile is-child notification">
-                <p class="title title-is-4">Memory Pool <span id="mempool_count" class="is-badge-top-right is-info "></span></p>
+                <p class="title title-is-5 badge is-badge-info" id="mempool_count">Memory Pool</p>
                 <div class="table">
                     <table class="table is-hoverable is-fullwidth is-size-6" id="mem_pool_table">
                         <thead>
@@ -61,7 +61,7 @@
 </div>    
 <div class="tile is-ancestor">
     <div class="tile is-parent is-12">
-        <div class="tile title-is-4">
+        <div class="tile title-is-5">
             <article class="tile is-child notification">
                 <div class="level">
                     <div class="level-left">
@@ -484,7 +484,8 @@
                         //$(row).find('.mtx-ago').timeago('update', new Date(timestamp * 1000).toISOString()); We can re-enable this after a timestamp is added to the mem_pool json
                     }
                 }
-                updateText('mempool_count', document.querySelectorAll('#mem_pool_rows tr').length);
+                //updateText('mempool_count', document.querySelectorAll('#mem_pool_rows tr').length);
+                $('#mempool_count').data('badge', document.querySelectorAll('#mem_pool_rows tr').length);
             },
             error: function(data) {console.log(data);}
         });
