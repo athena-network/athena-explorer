@@ -216,6 +216,8 @@ NETWORK_STAT_MAP2.forEach(function(url, host, map) {
         lazyRefreshChart();
     });
 });
+console.log(networkStat)
+console.log(NETWORK_STAT_MAP)
 
 
 setInterval(function(){
@@ -223,7 +225,6 @@ setInterval(function(){
     totalHashrate = 0;
     totalMiners = 0;
     poolStats = [];
-console.log(NETWORK_STAT_MAP)
     NETWORK_STAT_MAP.forEach(function(url, host, map) {
 
         var index = host.indexOf("/");
