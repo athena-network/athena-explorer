@@ -223,7 +223,7 @@ setInterval(function(){
     totalHashrate = 0;
     totalMiners = 0;
     poolStats = [];
-
+console.log(NETWORK_STAT_MAP)
     NETWORK_STAT_MAP.forEach(function(url, host, map) {
 
         var index = host.indexOf("/");

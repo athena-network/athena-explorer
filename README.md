@@ -1,5 +1,5 @@
 # Athena Block Explorer
-Block explorer for Athena (ATHX)CryptoNote based cryptocurrency.
+Block explorer for Athena (ATHX) CryptoNote based cryptocurrency.
 
 ## Dependencies
 - A webserver with the latest versions of PHP and MySQL.
