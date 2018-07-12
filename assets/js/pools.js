@@ -46,8 +46,8 @@ var renderPoolRow = function(host, name, data, d) {
     pools_row.push('<td id=hashrate-'+name+'>'+localizeNumber(data.pool.hashrate)+' H/s</td>');
     pools_row.push('<td id=miners-'+name+'>'+localizeNumber(data.pool.miners)+'</td>');
     pools_row.push('<td id=totalFee-'+name+'>'+calculateTotalFee(data)+'%</td>');
-    pools_row.push('<td id=minPayout-'+name+'>'+getReadableCoins(data.config.minPaymentThreshold,2)+'</td>');
-    pools_row.push('<td><span id=lastFound-'+name+'>'+datestring+'</span> (<span class="timeago" id="ago-'+name+'">'+agostring+'</span>)</td>');
+    pools_row.push('<td id=minPayout-'+name+'>'+getReadableCoins(data.config.minPaymentThreshold,2, ' ')+'</td>');
+    pools_row.push('<td><span id=lastFound-'+name+'><span class="timeago" id="ago-'+name+'">'+agostring+'</span></td>');
     pools_row.push('</tr>');
 
     return pools_row.join('');
