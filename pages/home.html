@@ -3,7 +3,11 @@
     <div class="tile is-parent is-vertical is-3" id="network-stats">
 
         <article class="tile is-child notification is-size-6" style="padding-top:30px;">
-            <i class="fas fa-bars" aria-hidden="true"></i> <b>Height: </b> <span id="networkHeight"></span>
+            <div>
+                <i class="fas fa-bars" aria-hidden="true"></i> <b>Height: </b> <span id="networkHeight"></span>
+            <div>
+ 
+            </div>
         </article>   
 
         <article class="tile is-child notification is-size-6" style="padding-top:30px;">
@@ -217,7 +221,7 @@
                     block = data.result.block;
                         updateText('totalCoins', getReadableCoins(block.alreadyGeneratedCoins, 2, ' '));
                         updateText('emissionPercent', (block.alreadyGeneratedCoins / 100000000000000 * 100).toFixed(4));
-                        updateText('currentReward', getReadableCoins(block.baseReward, 4, 'test'));
+                        updateText('currentReward', getReadableCoins(block.baseReward, 4, ' '));
                     }
                 });
             }
