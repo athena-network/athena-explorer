@@ -9,7 +9,7 @@ Block explorer for Athena (ATHX) CryptoNote based cryptocurrency.
 
 1)  It should be accessible from the Internet. Run athena with open port as follows:
 ```bash
-./Athena --enable-cors="*" --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=11898
+./Athena --enable-cors="*" --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=12001
 ```
 2) Setup the config.js file
 
