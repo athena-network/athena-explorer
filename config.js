@@ -1,4 +1,4 @@
-var api = 'http://pool.athx.host:12001';
+var api = 'http://athx.org:12001';
 var donationAddress = "";
 var blockTargetInterval = 3600;
 var coinUnits = 100;
